@@ -22,52 +22,51 @@ const useCountUp = (target: number, inView: boolean, duration = 1.2) => {
 };
 
 const formatPrice = (value: number, target: number) => {
-  if (target >= 1000) {
-    const whole = Math.floor(value / 1000);
-    const remainder = value % 1000;
-    if (whole > 0) return `$${whole},${String(remainder).padStart(3, "0")}`;
-    return `$${remainder}`;
-  }
+  if (target === 0) return "Custom";
   return `$${value}`;
 };
 
-const numericPrices = [499, 1299, 2499];
+const numericPrices = [49, 129, 0];
 
 const plans = [
   {
     fig: "TIER_01",
     name: "FIX",
-    price: "$499",
+    price: "$49",
     description: "One-time fix for a single broken or manual workflow.",
     features: [
       "1 workflow audit & rebuild",
       "Up to 5 n8n nodes",
       "48-hour delivery",
       "7-day support window",
+      "Unlimited revisions",
     ],
     featured: false,
     cta: "https://cal.com/saim-hussain-9ekrz6",
+    ctaText: "GET STARTED",
   },
   {
     fig: "TIER_02",
     name: "SYSTEM",
-    price: "$1,299",
+    price: "$129",
     description: "A full automation system with AI agents and integrations.",
     features: [
       "End-to-end workflow design",
       "AI agent integration",
-      "Self-hosted deployment",
+      "Self-host deployment (Client-side)",
       "30-day support window",
       "Full documentation",
     ],
     featured: true,
     cta: "mailto:saimxhussain@gmail.com?subject=SYSTEM%20Plan%20Inquiry",
+    ctaText: "GET STARTED",
   },
   {
     fig: "TIER_03",
-    name: "RETAINER",
-    price: "$2,499",
-    description: "Ongoing automation partner. Unlimited iterations.",
+    name: "CUSTOM",
+    price: "Custom",
+    description:
+      "Ongoing automation partner, unlimited integration and iteration, and access to pre-built or custom workflows.",
     features: [
       "Everything in SYSTEM",
       "Priority Slack channel",
@@ -76,7 +75,8 @@ const plans = [
       "SLA-backed uptime",
     ],
     featured: false,
-    cta: "https://cal.com/saim-hussain-9ekrz6",
+    cta: "mailto:saimxhussain@gmail.com?subject=CUSTOM%20Plan%20Inquiry",
+    ctaText: "CONTACT US",
   },
 ];
 
@@ -88,7 +88,7 @@ const PricingCard = ({
   onEnter,
   onLeave,
 }: {
-  plan: typeof plans[0];
+  plan: (typeof plans)[0];
   i: number;
   dimmed: boolean;
   scaled: boolean;
@@ -159,7 +159,7 @@ const PricingCard = ({
             : "border border-foreground text-foreground hover:text-background"
         }`}
       >
-        GET STARTED
+        {plan.ctaText}
       </a>
     </motion.div>
   );

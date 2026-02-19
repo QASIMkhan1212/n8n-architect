@@ -6,6 +6,7 @@ const testimonials = [
     name: "Sarah Chen",
     role: "Head of Operations",
     company: "Bloom Commerce",
+    initials: "SC",
     quote:
       "We used to spend 6 hours a day on order processing alone. Now it runs itself — zero errors, zero overtime. Our team finally focuses on growth instead of data entry.",
     result: "6 hours saved daily",
@@ -14,6 +15,7 @@ const testimonials = [
     name: "Marcus Rivera",
     role: "Founder & CEO",
     company: "FinLeap",
+    initials: "MR",
     quote:
       "Saim didn't just automate our KYC process — he made it 40x faster. What took a full day now takes 12 seconds. Our investors couldn't believe the numbers.",
     result: "40x faster processing",
@@ -22,6 +24,7 @@ const testimonials = [
     name: "Priya Sharma",
     role: "Marketing Director",
     company: "Altitude Media",
+    initials: "PS",
     quote:
       "Publishing content across 6 platforms used to take half my day. Now I hit one button and it's everywhere — formatted, scheduled, and tracked automatically.",
     result: "2 hours → 0 minutes",
@@ -30,6 +33,12 @@ const testimonials = [
 
 const resultNumbers = [6, 40, 2];
 const resultSuffixes = [" hours saved daily", "x faster processing", " hours → 0 minutes"];
+
+const avatarColors = [
+  "from-cyan-500 to-blue-600",
+  "from-purple-500 to-pink-600",
+  "from-emerald-500 to-teal-600",
+];
 
 const useCountUp = (target: number, inView: boolean, duration = 1.2) => {
   const [value, setValue] = useState(0);
@@ -51,7 +60,7 @@ const useCountUp = (target: number, inView: boolean, duration = 1.2) => {
   return value;
 };
 
-const TestimonialCard = ({ t, i }: { t: typeof testimonials[0]; i: number }) => {
+const TestimonialCard = ({ t, i }: { t: (typeof testimonials)[0]; i: number }) => {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true });
   const count = useCountUp(resultNumbers[i], inView);
@@ -70,12 +79,23 @@ const TestimonialCard = ({ t, i }: { t: typeof testimonials[0]; i: number }) => 
       </blockquote>
 
       <div className="border-t border-border pt-4">
-        <span className="font-display text-sm font-bold uppercase tracking-tight text-foreground block">
-          {t.name}
-        </span>
-        <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground block mb-3">
-          {t.role}, {t.company}
-        </span>
+        <div className="flex items-start gap-3 mb-3">
+          <div
+            className={`w-9 h-9 rounded-full bg-gradient-to-br ${avatarColors[i]} flex items-center justify-center flex-shrink-0`}
+          >
+            <span className="font-mono text-[10px] font-bold text-white">
+              {t.initials}
+            </span>
+          </div>
+          <div>
+            <span className="font-display text-sm font-bold uppercase tracking-tight text-foreground block">
+              {t.name}
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground block">
+              {t.role}, {t.company}
+            </span>
+          </div>
+        </div>
         <span className="inline-block font-mono text-[10px] uppercase tracking-widest text-primary border border-primary px-2 py-0.5">
           {count}{resultSuffixes[i]}
         </span>

@@ -30,6 +30,14 @@ const ParticleBackground = () => {
       });
     }
 
+    const getParticleColor = (opacity: number) => {
+      const isLight = document.documentElement.classList.contains("light");
+      if (isLight) {
+        return `hsla(187, 100%, 35%, ${opacity * 3})`;
+      }
+      return `hsla(187, 100%, 50%, ${opacity})`;
+    };
+
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach((p) => {
@@ -41,7 +49,7 @@ const ParticleBackground = () => {
         if (p.y > canvas.height) p.y = 0;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(187, 100%, 50%, ${p.opacity})`;
+        ctx.fillStyle = getParticleColor(p.opacity);
         ctx.fill();
       });
       animationId = requestAnimationFrame(animate);
