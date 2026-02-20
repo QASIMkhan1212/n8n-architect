@@ -58,7 +58,7 @@ const plans = [
       "Full documentation",
     ],
     featured: true,
-    cta: "mailto:saimxhussain@gmail.com?subject=SYSTEM%20Plan%20Inquiry",
+    cta: "mailto:saimm.dev@gmail.com?subject=SYSTEM%20Plan%20Inquiry",
     ctaText: "GET STARTED",
   },
   {
@@ -75,7 +75,7 @@ const plans = [
       "SLA-backed uptime",
     ],
     featured: false,
-    cta: "mailto:saimxhussain@gmail.com?subject=CUSTOM%20Plan%20Inquiry",
+    cta: "mailto:saimm.dev@gmail.com?subject=CUSTOM%20Plan%20Inquiry",
     ctaText: "CONTACT US",
   },
 ];

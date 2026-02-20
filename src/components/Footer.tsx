@@ -28,20 +28,20 @@ const Footer = () => {
         <div className="flex flex-col justify-between">
           <div>
             <span className="font-display text-xl font-black uppercase tracking-tighter text-foreground block mb-3">
-              N8N.ARCHITECT
+              AgentFlow
             </span>
             <p className="font-mono text-xs text-muted-foreground leading-relaxed mb-2">
               Systems that breathe. Logic that scales.
             </p>
             <a
-              href="mailto:saimxhussain@gmail.com"
+              href="mailto:saimm.dev@gmail.com"
               className="font-mono text-xs text-primary hover:underline"
             >
-              EMAIL: saimxhussain@gmail.com
+              EMAIL: saimm.dev@gmail.com
             </a>
           </div>
           <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mt-6 md:mt-8">
-            © 2025 N8N.ARCHITECT
+            © 2025 AgentFlow
           </span>
         </div>
       </div>
