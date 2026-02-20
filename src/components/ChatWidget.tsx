@@ -106,7 +106,7 @@ const ChatWidget = () => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50" style={{ cursor: "auto" }}>
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 pointer-events-none" style={{ cursor: "auto" }}>
       {/* Chat panel above the input bar */}
       <AnimatePresence>
         {open && messages.length > 0 && (
@@ -115,7 +115,7 @@ const ChatWidget = () => {
             animate={{ y: 0, opacity: 1, scale: 1 }}
             exit={{ y: 20, opacity: 0, scale: 0.95 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="mb-3 w-[calc(100vw-2rem)] sm:w-[400px] h-[400px] border border-border bg-background flex flex-col overflow-hidden"
+            className="mb-3 w-[calc(100vw-2rem)] sm:w-[400px] h-[400px] border border-border bg-background flex flex-col overflow-hidden pointer-events-auto"
           >
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-secondary">
@@ -191,7 +191,7 @@ const ChatWidget = () => {
       {/* Bottom input bar — pill shaped like reference image 3 */}
       <form
         onSubmit={(e) => { e.preventDefault(); send(); }}
-        className="flex items-center gap-2 rounded-full border border-border bg-secondary/90 backdrop-blur-sm px-2 py-1.5 w-[calc(100vw-2rem)] sm:w-[400px]"
+        className="flex items-center gap-2 rounded-full border border-border bg-secondary/90 backdrop-blur-sm px-2 py-1.5 w-[calc(100vw-2rem)] sm:w-[400px] pointer-events-auto"
       >
         <button
           type="button"
