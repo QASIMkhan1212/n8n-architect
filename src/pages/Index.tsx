@@ -30,9 +30,13 @@ const Index = () => {
             <Testimonials />
             <CaseStudies />
             <Pricing />
-            <Footer />
           </Suspense>
         </main>
+      </div>
+      <div className="relative z-[51]">
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
       </div>
       <Suspense fallback={null}>
         <ChatWidget />
