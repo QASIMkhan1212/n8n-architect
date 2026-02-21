@@ -34,8 +34,11 @@ const Footer = () => {
               Systems that breathe. Logic that scales.
             </p>
             <a
-              href="mailto:saimm.dev@gmail.com"
-              className="font-mono text-xs text-primary hover:underline"
+              href="https://mail.google.com/mail/?view=cm&to=saimm.dev@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs text-primary hover:underline cursor-pointer"
+              style={{ cursor: "pointer" }}
             >
               EMAIL: saimm.dev@gmail.com
             </a>
