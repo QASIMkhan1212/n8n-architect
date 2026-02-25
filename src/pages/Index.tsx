@@ -11,6 +11,7 @@ const Timeline = lazy(() => import("@/components/Timeline"));
 const Testimonials = lazy(() => import("@/components/Testimonials"));
 const CaseStudies = lazy(() => import("@/components/CaseStudies"));
 const Pricing = lazy(() => import("@/components/Pricing"));
+const GifsShowcase = lazy(() => import("@/components/GifsShowcase"));
 const Footer = lazy(() => import("@/components/Footer"));
 const ChatWidget = lazy(() => import("@/components/ChatWidget"));
 
@@ -25,11 +26,12 @@ const Index = () => {
           <Hero />
           <Suspense fallback={null}>
             <Marquee />
-            <BentoGrid />
             <Timeline />
             <Testimonials />
             <CaseStudies />
+            <BentoGrid />
             <Pricing />
+            <GifsShowcase />
           </Suspense>
         </main>
       </div>
